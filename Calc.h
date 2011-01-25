@@ -12,7 +12,7 @@ public:
     virtual ~Calc();
 
 private:
-    void Min(const ValueList& args, KValueRef result);
+    void Minimum(const ValueList& args, KValueRef result);
     KObjectRef global;
 };
 

@@ -1,8 +1,6 @@
 #ifndef CalcModule_h
 #define CalcModule_h
 
-#include <kroll/kroll.h>
-
 namespace Titanium {
 
 class EXPORT CalcModule : public kroll::Module
