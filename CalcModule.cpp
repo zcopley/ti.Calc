@@ -5,12 +5,12 @@ namespace Titanium {
 
 KROLL_MODULE(CalcModule, STRING(MODULE_NAME), STRING(MODULE_VERSION));
 
-svoid ExampleModule::Initialize()
+void CalcModule::Initialize()
 {
-    this->binding = new Calc(host->GetsGlobalObject());
+	this->binding = new Calc(host->GetGlobalObject());
 
-    KValueRef value = Value::NewObject(this->binding);
-    host->GetGlobalObject()->Set("Calc", value);
+	KValueRef value = Value::NewObject(this->binding);
+	host->GetGlobalObject()->Set("Calc", value);
 }
 
 void CalcModule::Stop()

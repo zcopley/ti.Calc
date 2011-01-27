@@ -5,9 +5,10 @@
 namespace Titanium {
 
 Calc::Calc(KObjectRef global) :
-    StaticBoundObject("Calc")
+    StaticBoundObject("Calc"),
+    global(global)
 {
-    this->SetMethod("Minimum", &Calc::Minimum);
+	this->SetMethod("Minimum", &Calc::Minimum);
 }
 
 Calc::~Calc()
@@ -16,23 +17,29 @@ Calc::~Calc()
 
 void Calc::Minimum(const ValueList& args, KValueRef result)
 {
-    if (args.at(0)->IsList())
-    {
-    KListRef list(args.GetList(0));
-    double arr[list->Size()];
+	if (args.at(0)->IsList())
+	{
+		KListRef list = args.at(0)->ToList();
 
-    for (size_t c = 0; c < list->Size(); c++)
-    {
-        arr[c] = args.at(c).ToDouble();
-    }
+		double *arr = NULL;
 
-    int cnt = sizeof(arr) / sizeof(double);
-    int low = Min(arr, cnt);
+		arr = new double[list->Size()];
 
-    result->SetDouble(low);
+		for (unsigned int c = 0; c < list->Size(); c++)
+		{
+			KValueRef d = list->At(c);
+			arr[c] = d->ToDouble();
+		}
+
+		int cnt = sizeof(arr) / sizeof(double);
+		int low = Min(arr, cnt);
+
+		result->SetDouble(low);
+
+		delete [] arr;
 
    } else {
-        throw ValueException::FromString("Min takes an array");
+		throw ValueException::FromString("Minimum takes an array");
    }
 
 }
