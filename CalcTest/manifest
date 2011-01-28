@@ -1,0 +1,21 @@
+#appname:CalcTest
+#appid:net.status.CalcTest
+#publisher:Zach Copley
+#image:default_app_logo.png
+#url:http://status.net/
+#guid:b2f56dcd-8417-45c7-a423-0cd6fd8dd9a1
+#desc:No description provided
+#type:desktop
+runtime:1.1.0
+tiapp:1.1.0
+tifilesystem:1.1.0
+tiplatform:1.1.0
+tiui:1.1.0
+ticodec:1.1.0
+tidatabase:1.1.0
+timedia:1.1.0
+timonkey:1.1.0
+tinetwork:1.1.0
+tiprocess:1.1.0
+tiworker:1.1.0
+ticalc:1.1.0
