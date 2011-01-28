@@ -31,8 +31,7 @@ void Calc::Minimum(const ValueList& args, KValueRef result)
 			arr[c] = d->ToDouble();
 		}
 
-		int cnt = sizeof(arr) / sizeof(double);
-		int low = Min(arr, cnt);
+		double low = Min(arr, list->Size());
 
 		result->SetDouble(low);
 
